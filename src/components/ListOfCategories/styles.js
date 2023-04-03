@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const List = styled.ul`
     display: flex;
     overflow: scroll;
+    scrollbar-width: none;
+    ::-webkit-scrollbar {
+        display: none;
+    }
     width: 100%;
 `;
 
