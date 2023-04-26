@@ -1,11 +1,23 @@
 import React from "react";
+import { useGetPhotos } from "../../hooks/useGetPhotos";
 import { PhotoCard } from "../PhotoCard";
 
-export const ListOfPhotoCards = () => {
+// eslint-disable-next-line react/prop-types
+export const ListOfPhotoCards = ({ categoryId }) => {
+    const { data, loading, error } = useGetPhotos(categoryId);
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error!!!</p>;
+
     return (
         <ul>
-            {[1, 2, 3, 4, 5].map((id) => (
-                <PhotoCard key={id} id={id} />
+            {data.photos.map((photo) => (
+                <PhotoCard
+                    key={photo.id}
+                    id={photo.id}
+                    likes={photo.likes}
+                    src={photo.src}
+                />
             ))}
         </ul>
     );

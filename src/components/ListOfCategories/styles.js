@@ -8,6 +8,7 @@ export const List = styled.ul`
         display: none;
     }
     width: 100%;
+    margin-bottom: 20px;
 
     ${(props) =>
         props.fixed &&

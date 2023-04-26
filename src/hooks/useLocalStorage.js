@@ -12,7 +12,6 @@ export function useLocalStorage(key, initialValue) {
 
     const setLocalStorage = (value) => {
         try {
-            console.log(value);
             localStorage.setItem(key, JSON.stringify(value));
             setValue(value);
         } catch (e) {
